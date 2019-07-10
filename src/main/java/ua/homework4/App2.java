@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.RootPaneContainer;
 import java.awt.Font;
+import javax.swing.JScrollPane;
 
 public class App2 extends JFrame {
 
@@ -72,8 +73,6 @@ public class App2 extends JFrame {
 		lblNewLabel_1.setBounds(77, 174, 169, 133);
 		contentPane.add(lblNewLabel_1);
 	System.out.println(getClass().getResource(getClass().getSimpleName() + ".class"));
-		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
 		StringBuilder sb = new StringBuilder();
 		BufferedReader buffer2 = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/text/CRUD.txt")));
@@ -85,16 +84,6 @@ public class App2 extends JFrame {
 	     
 	    }
 	    buffer2.close();
-		
-		
-		
-		
-		textArea.setText(sb.toString());
-		
-	    
-		
-		textArea.setBounds(400, 174, 230, 138);
-		contentPane.add(textArea);
 		
 		JLabel lblNewLabel_2 = new JLabel();
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 38));
@@ -111,6 +100,7 @@ public class App2 extends JFrame {
 		contentPane.add(textArea_1);
 		
 		JTextArea textArea_2 = new JTextArea();
+		textArea_2.setEditable(false);
 		StringBuilder sb1 = new StringBuilder();
 		
 		
@@ -130,6 +120,19 @@ public class App2 extends JFrame {
 		textArea_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		textArea_2.setBounds(400, 363, 230, 144);
 		contentPane.add(textArea_2);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(354, 174, 314, 133);
+		contentPane.add(scrollPane);
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		scrollPane.setViewportView(textArea);
+		textArea.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		
+		
+		
+		
+		textArea.setText(sb.toString());
 	}
 }
 
